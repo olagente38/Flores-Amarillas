@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores Amarillas - 21 de Septiembre</title>
+    <style>
+        body {
+            background-color: lightyellow;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .flor {
+            font-size: 48px;
+            position: absolute;
+            transition: all 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Feliz Día de la Primavera!</h1>
+    <p>Las flores amarillas simbolizan alegría y nuevos comienzos.</p>
+    <div id="flores-container"></div>
+
+    <script>
+        const floresContainer = document.getElementById('flores-container');
+
+        function crearFlores(numFlores) {
+            for (let i = 0; i < numFlores; i++) {
+                const flor = document.createElement('div');
+                flor.className = 'flor';
+                flor.innerText = '🌼';
+                floresContainer.appendChild(flor);
+                moverFlor(flor);
+            }
+        }
+
+        function moverFlor(flor) {
+            const x = Math.random() * (window.innerWidth - 50);
+            const y = Math.random() * (window.innerHeight - 50);
+            flor.style.transform = `translate(${x}px, ${y}px)`;
+            setTimeout(() => moverFlor(flor), 1000); // Mover cada segundo
+        }
+
+        crearFlores(5); // Crea 5 flores
+    </script>
+</body>
+</html>
